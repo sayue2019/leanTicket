@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {FormGroup, ControlLabel, FormControl, Button, Tooltip, OverlayTrigger} from 'react-bootstrap'
 import AV from 'leancloud-storage/live-query'
+import docsearch from 'docsearch.js'
 
 const {uploadFiles, getTinyCategoryInfo} = require('./common')
 
@@ -20,6 +21,13 @@ export default class NewTicket extends React.Component {
   }
 
   componentDidMount() {
+    docsearch({
+      apiKey: '357b777ed18e79673a2c1de3f6c64478',
+      indexName: 'leancloud',
+      inputSelector: '.docsearch-input',
+      debug: false // Set debug to true if you want to inspect the dropdown
+    })
+
     this.contentTextarea.addEventListener('paste', this.pasteEventListener.bind(this))
     return new AV.Query('Category').find()
     .then(categories => {
@@ -125,7 +133,8 @@ export default class NewTicket extends React.Component {
       <form onSubmit={this.handleSubmit.bind(this)}>
         <FormGroup>
           <ControlLabel>标题</ControlLabel>
-          <input type="text" className="form-control" value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
+          <input type="text" className="form-control docsearch-input" value={this.state.title} 
+            onChange={this.handleTitleChange.bind(this)} />
         </FormGroup>
         <FormGroup>
           <ControlLabel>问题分类</ControlLabel>
