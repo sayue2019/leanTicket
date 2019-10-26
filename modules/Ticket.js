@@ -43,10 +43,7 @@ export default class Ticket extends Component {
     this.getTicketQuery(parseInt(this.props.params.nid)).first()
     .then(ticket => {
       if (!ticket) {
-        return this.props.router.replace({
-          pathname: '/error',
-          state: { code: 'Unauthorized' }
-        })
+        return
       }
 
       return Promise.all([
