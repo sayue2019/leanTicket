@@ -33,7 +33,7 @@ const getIndexPage = () => {
 <html>
 <meta charset=utf-8/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LeanTicket</title>
+<title>三曰</title>
 <link rel="stylesheet" href="/css/highlight.default.min.css">
 <link rel="stylesheet" href="/css/leancloud-base.css">
 <link rel="stylesheet" href="/css/react-datepicker.css">

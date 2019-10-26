@@ -161,7 +161,7 @@ export default class Tickets extends Component {
     }
     return (
       <div>
-        <DocumentTitle title='工单列表 - LeanTicket' />
+        <DocumentTitle title='工单列表 - 三曰' />
         {this.props.organizations.length > 0 && <Form inline>
           {this.state.batchOpsEnable
             && <div>

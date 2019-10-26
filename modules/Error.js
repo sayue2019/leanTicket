@@ -8,7 +8,7 @@ export default function Error(props) {
         <h1 className='font-logo'>这里是错误页面</h1>
         <hr />
         <p>不过好像没有抓到什么错误信息</p>
-        <p>如有疑问，可以通过 <a href="mailto:support@leancloud.cn">support@leancloud.cn</a> 联系我们</p>
+        <p>如有疑问，可以通过 <a href="mailto:sayue2019@qq.com">sayue2019@qq.com</a> 联系我们</p>
       </div>
     )
   }
@@ -30,7 +30,7 @@ export default function Error(props) {
       <h1 className='font-logo'>很抱歉，看起来出了一些问题</h1>
       <hr />
       <p>{message}</p>
-      <p>如有疑问，可以通过 <a href="mailto:support@leancloud.cn">support@leancloud.cn</a> 联系我们</p>
+      <p>如有疑问，可以通过 <a href="mailto:sayue2019@qq.com">sayue2019@qq.com</a> 联系我们</p>
     </div>
   )
 }

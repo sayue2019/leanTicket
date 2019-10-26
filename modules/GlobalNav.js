@@ -50,12 +50,11 @@ export default class GlobalNav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="navbar-brand font-logo" to='/'>LeanTicket</Link>
+            <Link className="navbar-brand font-logo" to='/'>三曰工单</Link>
           </div>
           <div className="collapse navbar-collapse" id="global-navbar-collapse">
             <ul className="nav navbar-nav">
               <li><Link to="/tickets">工单列表</Link></li>
-              <li><Link to="/about">关于</Link></li>
             </ul>
             {customerServiceLinks}
             <ul className="nav navbar-nav navbar-right">

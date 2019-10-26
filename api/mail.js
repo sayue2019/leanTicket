@@ -15,9 +15,9 @@ exports.newTicket = (ticket, from, to) => {
     return Promise.resolve()
   }
   return send({
-    from: `${getUserDisplayName(from)} <ticket@leancloud.cn>`,
+    from: `${getUserDisplayName(from)} <sayue2019@qq.com>`,
     to: to.get('email'),
-    subject: `[LeanTicket] ${ticket.get('title')} (#${ticket.get('nid')})`,
+    subject: `[三曰工单] ${ticket.get('title')} (#${ticket.get('nid')})`,
     'h:Reply-To': `ticket-${to.id}@leancloud.cn`,
     text: ticket.get('content'),
     url: common.getTicketUrl(ticket),
@@ -29,9 +29,9 @@ exports.replyTicket = ({ticket, reply, from, to}) => {
     return Promise.resolve()
   }
   return send({
-    from: `${getUserDisplayName(from)} <ticket@leancloud.cn>`,
+    from: `${getUserDisplayName(from)} <sayue2019@qq.com>`,
     to: to.get('email'),
-    subject: `[LeanTicket] ${ticket.get('title')} (#${ticket.get('nid')})`,
+    subject: `[三曰工单] ${ticket.get('title')} (#${ticket.get('nid')})`,
     'h:Reply-To': `ticket-${to.id}@leancloud.cn`,
     text: reply.get('content'),
     url: common.getTicketUrl(ticket),
@@ -43,9 +43,9 @@ exports.changeAssignee = (ticket, from, to) => {
     return Promise.resolve()
   }
   return send({
-    from: `${getUserDisplayName(from)} <ticket@leancloud.cn>`,
+    from: `${getUserDisplayName(from)} <sayue2019@qq.com>`,
     to: to.get('email'),
-    subject: `[LeanTicket] ${ticket.get('title')} (#${ticket.get('nid')})`,
+    subject: `[三曰工单] ${ticket.get('title')} (#${ticket.get('nid')})`,
     'h:Reply-To': `ticket-${to.id}@leancloud.cn`,
     text:
       `${getUserDisplayName(from)} 将该工单转交给您处理。
@@ -66,7 +66,7 @@ exports.delayNotify = (ticket, to) => {
     return Promise.resolve()
   }
   return send({
-    from: 'support <ticket@leancloud.cn>',
+    from: 'support <sayue2019@qq.com>',
     to: to.get('email'),
     subject: `亲爱的 ${getUserDisplayName(to)}，快去回工单，比心👬👬👬`,
     text:

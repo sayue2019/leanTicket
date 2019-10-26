@@ -18,7 +18,7 @@ if (!config.bearychatGlobalHookUrl) {
 
 exports.newTicket = (ticket, from, to) => {
   const data = {
-    text: `LeanTicket: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 提交新工单`,
+    text: `三曰工单: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 提交新工单`,
     attachments: [{
       title: ticket.get('title'),
       text: ticket.get('content'),
@@ -33,7 +33,7 @@ exports.newTicket = (ticket, from, to) => {
 
 exports.replyTicket = ({ticket, reply, from, to, isCustomerServiceReply}) => {
   const data = {
-    text: `LeanTicket: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 回复工单`,
+    text: `三曰工单: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 回复工单`,
     attachments: [{
       title: ticket.get('title'),
       text: reply.get('content'),
@@ -64,7 +64,7 @@ exports.changeAssignee = (ticket, from ,to) => {
   }
 
   const data = {
-    text: `LeanTicket: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 将工单转交给 ${getUserDisplayName(to)}`,
+    text: `三曰工单: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 将工单转交给 ${getUserDisplayName(to)}`,
     attachments: [{
       title: ticket.get('title'),
       text: `该工单的问题：\n ${content} \n\n 最后一条回复：\n ${latestReply}`,
@@ -111,7 +111,7 @@ exports.delayNotify = (ticket, to) => {
 exports.ticketEvaluation = (ticket, from, to) => {
   const {star, content} = ticket.get('evaluation')
   const data = {
-    text: `LeanTicket: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 评价工单`,
+    text: `三曰工单: [#${ticket.get('nid')}](${getTicketUrl(ticket)}): ${getUserDisplayName(from)} 评价工单`,
     attachments: [{
       title: ticket.get('title'),
       text:

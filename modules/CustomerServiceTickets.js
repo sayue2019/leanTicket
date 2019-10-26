@@ -420,7 +420,7 @@ export default class CustomerServiceTickets extends Component {
 
     return (
       <div>
-        <DocumentTitle title='客服工单列表 - LeanTicket' />
+        <DocumentTitle title='客服工单列表 - 三曰' />
         <div className={css.row}>
           <Checkbox className={css.ticketSelectCheckbox} onClick={this.handleClickCheckAll.bind(this)} checked={this.state.isCheckedAll}></Checkbox>
           {this.state.checkedTickets.size && ticketCheckedOperations || ticketAdminFilters}
