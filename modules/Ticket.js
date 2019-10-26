@@ -43,7 +43,10 @@ export default class Ticket extends Component {
     this.getTicketQuery(parseInt(this.props.params.nid)).first()
     .then(ticket => {
       if (!ticket) {
-        return
+        return this.props.router.replace({
+          pathname: '/error',
+          state: { code: 'Unauthorized' }
+        })
       }
 
       return Promise.all([
@@ -65,7 +68,7 @@ export default class Ticket extends Component {
         return
       })
     })
-    .catch(this.context.addNotification)
+    .catch()
   }
 
   componentWillUnmount() {
