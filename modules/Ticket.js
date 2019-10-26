@@ -68,7 +68,7 @@ export default class Ticket extends Component {
         return
       })
     })
-    .catch()
+    .catch(this.context.addNotification)
   }
 
   componentWillUnmount() {
@@ -109,7 +109,6 @@ export default class Ticket extends Component {
         }
       })
     })
-    .catch(this.context.addNotification)
     return query
   }
 
@@ -131,7 +130,6 @@ export default class Ticket extends Component {
         }).catch(this.context.addNotification)
       })
     })
-    .catch(this.context.addNotification)
     return replyQuery
   }
 
@@ -152,7 +150,7 @@ export default class Ticket extends Component {
         }).catch(this.context.addNotification)
       })
     })
-    .catch(this.context.addNotification)
+    
     return opsLogQuery
   }
 
