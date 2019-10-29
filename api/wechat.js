@@ -72,7 +72,7 @@ AV.Cloud.define('getWechatEnterpriseUsers', (req, res) => {
 })
 
 exports.newTicket = (ticket, from, to) => {
-  if (!to.get('wechatEnterpriseUserId')) {
+  if (!to.get('wechatEnterpriseUserId') || !wechatConfig.token) {
     return Promise.resolve()
   }
   return send({
@@ -84,7 +84,7 @@ exports.newTicket = (ticket, from, to) => {
 }
 
 exports.replyTicket = ({ticket, reply, to}) => {
-  if (!to.get('wechatEnterpriseUserId')) {
+  if (!to.get('wechatEnterpriseUserId') || !wechatConfig.token) {
     return Promise.resolve()
   }
   return send({
@@ -96,7 +96,7 @@ exports.replyTicket = ({ticket, reply, to}) => {
 }
 
 exports.changeAssignee = (ticket, from ,to) => {
-  if (!to.get('wechatEnterpriseUserId')) {
+  if (!to.get('wechatEnterpriseUserId') || !wechatConfig.token) {
     return Promise.resolve()
   }
   return send({
@@ -117,7 +117,7 @@ ${ticket.get('latestReply') && ticket.get('latestReply').content}
 }
 
 exports.delayNotify = (ticket ,to) => {
-  if (!to.get('wechatEnterpriseUserId')) {
+  if (!to.get('wechatEnterpriseUserId') || !wechatConfig.token) {
     return Promise.resolve()
   }
   return send({

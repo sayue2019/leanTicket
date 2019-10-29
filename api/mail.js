@@ -11,7 +11,7 @@ const common = require('./common')
 const errorHandler = require('./errorHandler')
 
 exports.newTicket = (ticket, from, to) => {
-  if (!to.get('email')) {
+  if (!to.get('email') || !config.mailgunKey || !config.mailgunDomain) {
     return Promise.resolve()
   }
   return send({
@@ -25,7 +25,7 @@ exports.newTicket = (ticket, from, to) => {
 }
 
 exports.replyTicket = ({ticket, reply, from, to}) => {
-  if (!to.get('email')) {
+  if (!to.get('email') || !config.mailgunKey || !config.mailgunDomain) {
     return Promise.resolve()
   }
   return send({
@@ -39,7 +39,7 @@ exports.replyTicket = ({ticket, reply, from, to}) => {
 }
 
 exports.changeAssignee = (ticket, from, to) => {
-  if (!to.get('email')) {
+  if (!to.get('email') || !config.mailgunKey || !config.mailgunDomain) {
     return Promise.resolve()
   }
   return send({
@@ -62,7 +62,7 @@ ${ticket.get('latestReply') && ticket.get('latestReply').content || '<暂无>'}
 }
 
 exports.delayNotify = (ticket, to) => {
-  if (!to.get('email')) {
+  if (!to.get('email') || !config.mailgunKey || !config.mailgunDomain) {
     return Promise.resolve()
   }
   return send({
