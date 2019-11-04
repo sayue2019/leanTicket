@@ -1,6 +1,8 @@
 const router = require('express').Router()
 const AV = require('leanengine')
 
+const config = require('../config')
+
 AV.init({
   appId: process.env.LEANCLOUD_APP_ID,
   appKey: process.env.LEANCLOUD_APP_KEY,
