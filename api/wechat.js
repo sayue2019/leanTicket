@@ -5,6 +5,7 @@ const wechat = require('wechat-enterprise')
 const AV = require('leanengine')
 
 const qs = require('qs')
+const request = require('request-promise')
 
 const common = require('./common')
 const {getUserDisplayName} = common
