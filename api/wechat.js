@@ -4,6 +4,8 @@ const _ = require('lodash')
 const wechat = require('wechat-enterprise')
 const AV = require('leanengine')
 
+const qs = require('qs')
+
 const common = require('./common')
 const {getUserDisplayName} = common
 
