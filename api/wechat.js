@@ -142,6 +142,10 @@ ${ticket.get('latestReply') && ticket.get('latestReply').content}
 exports.getAccessToken = (code) => {
   return api.getLatestTokenAsync()
   .then((latestToken) => {
+    if(latestToken === null) {
+      throw new Error(`wechat enterprise get latestToken err: code=41001, msg=${latestToken}`)
+    }
+    throw new Error(`wechat enterprise get latestToken ok: code=0, msg=${latestToken}`)
     const url = 'https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?' +
     qs.stringify({
       access_token: latestToken,
