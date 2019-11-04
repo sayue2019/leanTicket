@@ -145,10 +145,10 @@ exports.getAccessToken = (code) => {
     if(latestToken === null) {
       throw new Error(`wechat enterprise get latestToken err: code=41001, msg=${JSON.stringify(latestToken)}`)
     }
-    throw new Error(`wechat enterprise get latestToken ok: code=0, msg=${JSON.stringify(latestToken)}`)
+
     const url = 'https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?' +
     qs.stringify({
-      access_token: latestToken,
+      access_token: latestToken.accessToken,
       code: code,
     })
     return request({url, json: true})
