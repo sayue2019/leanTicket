@@ -33,6 +33,7 @@ exports.loginCallback = (callbackUrl) => {
   return (req, res) => {
     wechat.getAccessToken(req.query.code, callbackUrl).then((accessToken) => {
       //accessToken.uid = '' + accessToken.uid
+      console.log(JSON.stringify(accessToken))
       return AV.User.loginWithAuthDataAndUnionId(accessToken, 'wechat', accessToken.UserId.toLowerCase(), {
         unionIdPlatform: 'wechat',
         asMainAccount: true,
