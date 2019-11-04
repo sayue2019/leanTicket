@@ -12,7 +12,7 @@ default:
 }
 
 module.exports = {
-  host,
+  host: host,
   oauthKey: process.env.OAUTH_KEY,
   oauthSecret: process.env.OAUTH_SECRET,
   leancloudAppUrl: process.env.LEANCLOUD_APP_URL,
