@@ -136,6 +136,31 @@ ${ticket.get('latestReply') && ticket.get('latestReply').content}
   })
 }
 
+exports.getAccessToken = (code) => {
+  return api.getLatestTokenAsync()
+  .then((latestToken) => {
+    const url = 'https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?' +
+    qs.stringify({
+      access_token: latestToken,
+      code: code,
+    })
+    return request({url, json: true})
+  })
+  .then((data) => {
+    if (data.errcode !== 0) {
+      throw new Error(`wechat enterprise get login err: code=${data.errcode}, msg=${data.errmsg}`)
+    }
+    return data
+  })
+}
+
+exports.getUserInfo = (userId) => {
+  if (userId === null) {
+    return []
+  }
+  return api.getUserAsync(userId)
+}
+
 const send = (params) => {
   if (api === null) {
     return
@@ -182,4 +207,6 @@ const getUsers = () => {
     return _.uniqWith(users, _.isEqual)
   })
 }
+
+
 
