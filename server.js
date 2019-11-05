@@ -6,8 +6,6 @@ const compression = require('compression')
 const Raven = require('raven')
 const AV = require('leanengine')
 
-const common = require('./api/common')
-
 const config = require('./config')
 
 Raven.config(config.sentryDSN).install()
@@ -31,8 +29,6 @@ app.use(require('./api'))
 
 const orgName = require('./api/oauth').orgName
 
-const isWechat = common.isWechat()
-
 const getIndexPage = () => {
   return `
 <!doctype html public "storage">
@@ -55,7 +51,6 @@ const getIndexPage = () => {
   LEAN_CLI_HAVE_STAGING = '${process.env.LEAN_CLI_HAVE_STAGING}'
   SENTRY_DSN_PUBLIC = '${config.sentryDSNPublic || ''}'
   ORG_NAME = '${orgName}'
-  USE_OAUTH = '${isWechat}'
 </script>
 <script src='${process.env.WEBPACK_DEV_SERVER || ''}/bundle.js'></script>
 <script>

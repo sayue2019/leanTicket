@@ -15,8 +15,21 @@ export default class Login extends Component {
     }
   }
 
+
+  
+
   componentDidMount() {
+    USE_OAUTH = false
     const query = this.props.location.query
+    const isWechat = () =>{
+      var ua = navigator.userAgent.toLowerCase();
+      if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+          return true;
+      }else{
+          return false;
+      }
+    }
+    if(isWechat()) USE_OAUTH = true
     if (query.token) {
       return AV.User.become(query.token)
       .then((user) => {
