@@ -104,9 +104,10 @@ export default class Login extends Component {
     const ua = navigator.userAgent.toLowerCase();
     console.log(ua);
     if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-      return true
+      console.log('ok')
+      return 'true'
     }
-    return false
+    return 'false'
   }
 
   render() {
