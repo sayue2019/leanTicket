@@ -11,6 +11,7 @@ export default class Profile extends Component {
     this.state = {
       name: this.props.currentUser.get('name'),
       email: this.props.currentUser.get('email'),
+      password: this.props.currentUser.get('password'),
     }
   }
 
@@ -23,6 +24,10 @@ export default class Profile extends Component {
 
   handleEmailChange(e) {
     this.setState({email: e.target.value})
+  }
+
+  handlePasswordChange(e) {
+    this.setState({password: e.target.value})
   }
 
   handleSubmit(e) {
@@ -49,6 +54,10 @@ export default class Profile extends Component {
               <ControlLabel>电子邮箱</ControlLabel>
               <FormControl type="text" value={this.state.email} onChange={this.handleEmailChange.bind(this)} />
             </FormGroup>
+            <FormGroup>
+            <ControlLabel>密码</ControlLabel>
+            <FormControl type='password' value={this.state.password} onChange={this.handlePasswordChange.bind(this)} />
+          </FormGroup>
             <Button type='button' onClick={this.handleSubmit.bind(this)}>保存</Button>
           </Form>
         </div>
