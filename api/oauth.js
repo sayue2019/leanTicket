@@ -32,13 +32,11 @@ exports.login = (callbackUrl) => {
 exports.loginCallback = (callbackUrl) => {
   return (req, res) => {
     wechat.getAccessToken(req.query.code, callbackUrl).then((accessToken) => {
-      //accessToken.uid = '' + accessToken.uid
+      accessToken.openid = '' + accessToken.UserId
       console.log(JSON.stringify(accessToken))
-      return AV.User.loginWithAuthDataAndUnionId(accessToken, 'wechat', accessToken.UserId.toLowerCase(), {
-        unionIdPlatform: 'wechat',
-        asMainAccount: true,
-      })
+      return AV.User.loginWithAuthData(accessToken, 'wechat')
     }).then((user) => {
+      console.log(JSON.stringify(user))
       if (_.isEqual(user.createdAt, user.updatedAt)) {
         // 第一次登录，从 LeanCloud 初始化用户信息
         return initUserInfo(user)
