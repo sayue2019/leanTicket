@@ -32,9 +32,11 @@ export default class Profile extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    return this.props.updateCurrentUser(this.state)
+    this.props.updateCurrentUser(this.state)
     .then(this.context.addNotification)
     .catch(this.context.addNotification)
+    return this.props.logout()
+
   }
 
   render() {
@@ -81,6 +83,7 @@ export default class Profile extends Component {
 Profile.propTypes = {
   currentUser: PropTypes.object,
   updateCurrentUser: PropTypes.func,
+  logout: PropTypes.func,
 }
 
 Profile.contextTypes = {
