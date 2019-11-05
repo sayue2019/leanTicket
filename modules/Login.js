@@ -20,16 +20,11 @@ export default class Login extends Component {
 
   componentDidMount() {
     const query = this.props.location.query
-    const isWechat = () =>{
-      var ua = navigator.userAgent.toLowerCase();
-      console.log(ua);
-      if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-          return true;
-      }else{
-          return false;
-      }
+    var ua = navigator.userAgent.toLowerCase();
+    console.log(ua);
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+      USE_OAUTH = true
     }
-    if(isWechat()) USE_OAUTH = true
     if (query.token) {
       return AV.User.become(query.token)
       .then((user) => {
