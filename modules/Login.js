@@ -20,11 +20,7 @@ export default class Login extends Component {
 
   componentDidMount() {
     const query = this.props.location.query
-    var ua = navigator.userAgent.toLowerCase();
-    console.log(ua);
-    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-      USE_OAUTH = true
-    }
+    
     if (query.token) {
       return AV.User.become(query.token)
       .then((user) => {
@@ -104,7 +100,17 @@ export default class Login extends Component {
     this.setState({password: e.target.value})
   }
 
+  isWechat() {
+    const ua = navigator.userAgent.toLowerCase();
+    console.log(ua);
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+      return true
+    }
+    return false
+  }
+
   render() {
+    USE_OAUTH = this.isWechat()
     if (USE_OAUTH === 'false') {
       return <div className={css.wrap}>
         <h1 className='font-logo'>登录或注册</h1>
