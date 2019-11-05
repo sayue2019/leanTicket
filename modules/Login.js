@@ -113,7 +113,7 @@ export default class Login extends Component {
     USE_OAUTH = this.isWechat()
     if (USE_OAUTH === 'false') {
       return <div className={css.wrap}>
-        <h1 className='font-logo'>登录或注册</h1>
+        <h1 className='font-logo'>登录</h1>
         <hr />
         <form>
           <FormGroup>
