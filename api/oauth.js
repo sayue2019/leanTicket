@@ -60,7 +60,7 @@ const initUserInfo = (user) => {
       mobilePhoneNumber: client.mobile,
 
 
-    })
+    },{useMasterKey: true})
   })
 }
 
