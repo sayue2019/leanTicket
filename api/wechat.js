@@ -197,9 +197,7 @@ exports.isWechat = () =>{
   }
 }
 
-————————————————
-版权声明：本文为CSDN博主「Lubin的编程技术专栏」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/bingbingtea/article/details/51114239
+
 
 const getUsers = () => {
   if (api === null) {
