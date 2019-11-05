@@ -128,8 +128,12 @@ export default class App extends Component {
     if (props.email) {
       user.set('gravatarHash', getGravatarHash(props.email))
     }
+    
     return user.save().then(user => {
       this.setState({currentUser: user})
+      if (props.password) {
+        this.logout
+      }
       return
     })
   }
