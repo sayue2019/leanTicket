@@ -6,6 +6,8 @@ const compression = require('compression')
 const Raven = require('raven')
 const AV = require('leanengine')
 
+const common = require('./api/common')
+
 const config = require('./config')
 
 Raven.config(config.sentryDSN).install()
@@ -29,7 +31,7 @@ app.use(require('./api'))
 
 const orgName = require('./api/oauth').orgName
 
-const isWechat = require('./api/wechat').isWechat()
+const isWechat = common.isWechat()
 
 const getIndexPage = () => {
   return `
