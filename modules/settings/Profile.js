@@ -32,10 +32,8 @@ export default class Profile extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    return this.props.updateCurrentUser(this.state)
-    .then(() => {
-      return this.props.logout()
-    })
+    this.props.updateCurrentUser(this.state)
+    return this.props.logout()
     .then(this.context.addNotification)
     .catch(this.context.addNotification)
     //return this.props.logout()
