@@ -132,7 +132,7 @@ export default class App extends Component {
     return user.save().then(user => {
       this.setState({currentUser: user})
       if (props.password) {
-        this.logout
+        this.logout()
       }
       return
     })
