@@ -19,7 +19,6 @@ export default class Login extends Component {
   
 
   componentDidMount() {
-    USE_OAUTH = false
     const query = this.props.location.query
     const isWechat = () =>{
       var ua = navigator.userAgent.toLowerCase();
