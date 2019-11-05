@@ -58,8 +58,8 @@ const initUserInfo = (user) => {
       username: client.userid.toLowerCase(),
       name: client.name,
       wechatEnterpriseUserId: client.userid,
-      email: client.email,
-      mobilePhoneNumber: client.mobile,
+      //email: client.email,
+      //mobilePhoneNumber: client.mobile,
 
 
     },{useMasterKey: true})
