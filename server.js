@@ -53,7 +53,7 @@ const getIndexPage = () => {
   LEAN_CLI_HAVE_STAGING = '${process.env.LEAN_CLI_HAVE_STAGING}'
   SENTRY_DSN_PUBLIC = '${config.sentryDSNPublic || ''}'
   ORG_NAME = '${orgName}'
-  USE_OAUTH = '${isWechat}'
+  USE_OAUTH = '${!!isWechat}'
 </script>
 <script src='${process.env.WEBPACK_DEV_SERVER || ''}/bundle.js'></script>
 <script>

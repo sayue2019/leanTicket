@@ -51,7 +51,7 @@ exports.loginCallback = (callbackUrl) => {
 const initUserInfo = (user) => {
   return getClientInfo(user)
   .then((client) => {
-    console.log(JSON.stringify(client))
+    //console.log(JSON.stringify(client))
     return user.save({
       username: client.userid.toLowerCase(),
       name: client.name,
