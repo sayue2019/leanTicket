@@ -26,7 +26,7 @@ require('./Vacation')
 const loginCallbackPath = '/oauth/callback'
 const loginCallbackUrl = config.host + loginCallbackPath
 router.use('/oauth/login', require('./oauth').login(loginCallbackUrl))
-router.use(loginCallbackPath, require('./oauth').loginCallback(loginCallbackUrl))
+router.use(loginCallbackPath, require('./oauth').loginCallback())
 
 router.use('/webhooks/mailgun', require('./mailgun'))
 router.use('/webhooks/wechat', require('./wechat').router)

@@ -1,11 +1,9 @@
 const router = require('express').Router()
 const qs = require('qs')
 const _ = require('lodash')
-const request = require('request-promise')
 const AV = require('leanengine')
 
 const config = require('../config')
-const common = require('./common')
 
 const wechat = require('./wechat')
 
@@ -29,21 +27,25 @@ exports.login = (callbackUrl) => {
   }
 }
 
-exports.loginCallback = (callbackUrl) => {
+exports.loginCallback = () => {
   return (req, res) => {
-    wechat.getAccessToken(req.query.code, callbackUrl).then((accessToken) => {
+    // eslint-disable-next-line promise/catch-or-return
+    wechat.getAccessToken(req.query.code)
+    .then((accessToken) => {
       accessToken.openid = '' + accessToken.UserId
       //console.log(JSON.stringify(accessToken))
       return AV.User.loginWithAuthData(accessToken, 'wechat')
-    }).then((user) => {
+    })
+    .then((authData) => {
       //console.log(JSON.stringify(user))
-      if (_.isEqual(user.createdAt, user.updatedAt)) {
+      if (_.isEqual(authData.createdAt, authData.updatedAt)) {
         // 第一次登录，从 LeanCloud 初始化用户信息
-        return initUserInfo(user)
+        return initUserInfo(authData)
       }
-      return user
-    }).then((user) => {
-      res.redirect('/login?token=' + user._sessionToken)
+      return authData
+    })
+    .then((user) => {
+      return res.redirect('/login?token=' + user._sessionToken)
     })
   }
 }
