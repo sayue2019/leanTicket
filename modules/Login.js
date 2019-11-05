@@ -67,6 +67,7 @@ export default class Login extends Component {
     .catch(this.context.addNotification)
   }
 
+  /*
   handleSignup() {
     return AV.User.signUp(
       this.state.username,
@@ -82,7 +83,7 @@ export default class Login extends Component {
     })
     .catch(this.context.addNotification)
   }
-
+*/
   redirect(props) {
     const { location } = props
     if (location.state && location.state.nextPathname) {
@@ -126,7 +127,6 @@ export default class Login extends Component {
           <FormGroup>
             <Button type='button' bsStyle='primary' onClick={this.handleLogin.bind(this)}>登录</Button>
             {' '}
-            <Button type='button' onClick={this.handleSignup.bind(this)}>注册</Button>
           </FormGroup>
         </form>
       </div>
