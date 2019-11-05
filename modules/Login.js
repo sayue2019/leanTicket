@@ -102,9 +102,7 @@ export default class Login extends Component {
 
   isWechat() {
     const ua = navigator.userAgent.toLowerCase();
-    console.log(ua);
     if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-      console.log('ok')
       return 'true'
     }
     return 'false'
