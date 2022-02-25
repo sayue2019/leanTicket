@@ -1,4 +1,4 @@
-/*global SENTRY_DSN_PUBLIC, LEANCLOUD_APP_ID, LEANCLOUD_APP_KEY, LEANCLOUD_APP_ENV, LEAN_CLI_HAVE_STAGING*/
+/*global SENTRY_DSN_PUBLIC, LEANCLOUD_APP_ID, LEANCLOUD_APP_KEY, LEANCLOUD_APP_ENV, LEAN_CLI_HAVE_STAGING, LEANCLOUD_SERVER_URL*/
 import React from 'react'
 import Raven from 'raven-js'
 import { Route, IndexRoute, Redirect } from 'react-router'
@@ -50,7 +50,7 @@ if (SENTRY_DSN_PUBLIC !== '') {
 AV.init({
   appId: LEANCLOUD_APP_ID,
   appKey: LEANCLOUD_APP_KEY,
-  serverURL: process.env.LEANCLOUD_SERVER_URL
+  serverURL: LEANCLOUD_SERVER_URL
 })
 if (LEANCLOUD_APP_ENV === 'development') {
   AV.setProduction(LEAN_CLI_HAVE_STAGING !== 'true')

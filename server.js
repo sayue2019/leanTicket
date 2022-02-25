@@ -50,6 +50,7 @@ const getIndexPage = () => {
   LEANCLOUD_APP_ENV = '${process.env.LEANCLOUD_APP_ENV}'
   LEAN_CLI_HAVE_STAGING = '${process.env.LEAN_CLI_HAVE_STAGING}'
   SENTRY_DSN_PUBLIC = '${config.sentryDSNPublic || ''}'
+  LEANCLOUD_SERVER_URL = '${process.env.LEANCLOUD_SERVER_URL}'
   ORG_NAME = '${orgName}'
   USE_OAUTH = 'false'
 </script>
