@@ -7,7 +7,7 @@ AV.init({
   appId: process.env.LEANCLOUD_APP_ID,
   appKey: process.env.LEANCLOUD_APP_KEY,
   masterKey: process.env.LEANCLOUD_APP_MASTER_KEY,
-  serverURL: process.env.LEANCLOUD_SERVER_URLS
+  //serverURLS: process.env.LEANCLOUD_SERVER_URLS
 })
 AV.setProduction(process.env.NODE_ENV === 'production')
 
