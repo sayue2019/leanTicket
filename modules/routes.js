@@ -50,7 +50,7 @@ if (SENTRY_DSN_PUBLIC !== '') {
 AV.init({
   appId: LEANCLOUD_APP_ID,
   appKey: LEANCLOUD_APP_KEY,
-  //serverURLS: process.env.LEANCLOUD_SERVER_URLS
+  serverURL: process.env.LEANCLOUD_SERVER_URL
 })
 if (LEANCLOUD_APP_ENV === 'development') {
   AV.setProduction(LEAN_CLI_HAVE_STAGING !== 'true')
