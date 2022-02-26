@@ -5,3 +5,5 @@ public/bundle.js
 public/app.css
 datas/
 dist/
+bundle.js.map
+settings.json
