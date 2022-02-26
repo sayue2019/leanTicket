@@ -8,6 +8,7 @@ import AV from 'leancloud-storage/live-query'
 import common from './common'
 import App from './App'
 import About from './About'
+import Readme from './Readme'
 import Login from './Login'
 
 import Tickets from './Tickets'
@@ -62,6 +63,7 @@ module.exports = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/about" component={About}/>
+    <Route path="/readme" component={Readme}/>
     <Route path="/login" component={Login}/>
     <Route path="/tickets" component={Tickets} onEnter={common.requireAuth} />
     <Route path="/tickets/new" component={NewTicket} onEnter={common.requireAuth} />
