@@ -10,6 +10,21 @@ LeanCloud 应用准备
 3. 初始化数据表：将 `./resources/schema` 目录下表结构导入到存储服务中。
 4. 设置云引擎二级域名：云引擎 -> 设置 -> Web 主机域名
 
+5. 添加新变量：云引擎 -> 设置 -> 自定义环境变量
+   - WECHAT_TOKEN, API接收消息参数:token
+   - WECHAT_SECRET, 企业微信应用secret
+   - WECHAT_ENCODING_AES_KEY, API接收消息参数:EncodingAESKey
+   - WECHAT_CORP_ID,   企业微信企业ID
+   - WECHAT_AGENT_ID,  企业微信应用ID
+   - TICKET_HOST, web 主机域名
+   - SITE_NAME, 网站名称
+   - OAUTH_KEY, 
+   - LEANCLOUD_SERVER_URL, api绑定域名
+
+6. 企业微信设置：新建应用 -> 添加自定义菜单 -> 网页授权及JS-SDK启用 -> 设置接收消息 API接收消息URL: https://yoursite.host/webhooks/wechat
+
+7. 使用git方式在线部署: https://github.com/sayue2019/leanTicket
+
 获取应用源码：
 
 ```
@@ -37,7 +52,7 @@ lean deploy
 
 #### 注册管理员
 
-应用注册的第一个账号默认会被设置为「管理员」和「客服」两种角色，之后可以使用该账号添加更多的账号到「客服」角色之中。
+应用注册的第一个账号默认会被设置为「管理员」和「客服」两种角色，之后可以使用该账号添加更多的账号到「客服」角色之中。(注：直接在结构化数据的_User中 -> 添加行 -> 新建一个用户即可登陆)
 
 #### 添加客服
 
