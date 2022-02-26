@@ -67,7 +67,7 @@ export default class Login extends Component {
     .catch(this.context.addNotification)
   }
 
-  /*
+  
   handleSignup() {
     return AV.User.signUp(
       this.state.username,
@@ -83,7 +83,7 @@ export default class Login extends Component {
     })
     .catch(this.context.addNotification)
   }
-*/
+
   redirect(props) {
     const { location } = props
     if (location.state && location.state.nextPathname) {
