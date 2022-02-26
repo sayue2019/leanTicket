@@ -35,7 +35,7 @@ const getIndexPage = () => {
 <html>
 <meta charset=utf-8/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>三曰</title>
+<title>${config.siteName}</title>
 <link rel="stylesheet" href="/css/highlight.default.min.css">
 <link rel="stylesheet" href="/css/leancloud-base.css">
 <link rel="stylesheet" href="/css/react-datepicker.css">
@@ -52,6 +52,7 @@ const getIndexPage = () => {
   SENTRY_DSN_PUBLIC = '${config.sentryDSNPublic || ''}'
   LEANCLOUD_SERVER_URL = '${process.env.LEANCLOUD_SERVER_URL}'
   ORG_NAME = '${orgName}'
+  SITE_NAME = '${config.siteName}'
   USE_OAUTH = 'false'
 </script>
 <script src='${process.env.WEBPACK_DEV_SERVER || ''}/bundle.js'></script>

@@ -1,3 +1,4 @@
+/*global SITE_NAME*/
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router'
@@ -50,7 +51,7 @@ export default class GlobalNav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="navbar-brand font-logo" to='/'>三曰工单</Link>
+            <Link className="navbar-brand font-logo" to='/'>{SITE_NAME}</Link>
           </div>
           <div className="collapse navbar-collapse" id="global-navbar-collapse">
             <ul className="nav navbar-nav">
