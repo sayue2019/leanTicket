@@ -1,3 +1,4 @@
+/*global SITE_NAME*/
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
@@ -159,9 +160,10 @@ export default class Tickets extends Component {
         <div key={0}>未查询到相关工单，您可以 <Link to='/tickets/new'>新建工单</Link></div>
       )
     }
+    var fullTitle = '工单列表 - '+ SITE_NAME
     return (
       <div>
-        <DocumentTitle title='工单列表 - 三曰' />
+        <DocumentTitle title={fullTitle} />
         {this.props.organizations.length > 0 && <Form inline>
           {this.state.batchOpsEnable
             && <div>

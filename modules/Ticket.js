@@ -1,3 +1,4 @@
+/*global SITE_NAME*/
 import moment from 'moment'
 import _ from 'lodash'
 import xss from 'xss'
@@ -437,12 +438,13 @@ export default class Ticket extends Component {
         </FormGroup>
       )
     }
+    var fullTitle = ' - '+ SITE_NAME
 
     return (
       <div>
         <div className="row">
           <div className="col-sm-12">
-            <DocumentTitle title={ticket.get('title') + ' - 三曰' || '三曰'} />
+            <DocumentTitle title={ticket.get('title') + {fullTitle} || {SITE_NAME}} />
             <h1>{ticket.get('title')}</h1>
             <div className={css.meta}>
               <span className={csCss.nid}>#{ticket.get('nid')}</span>

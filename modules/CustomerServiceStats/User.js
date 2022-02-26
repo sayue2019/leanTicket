@@ -1,3 +1,4 @@
+/*global SITE_NAME*/
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Table} from 'react-bootstrap'
@@ -48,8 +49,9 @@ export default class CSStatsUser extends React.Component {
         <td>{replyTime && replyTime.replyCount}</td>
       </tr>
     })
+    var fullTitle = '统计 - '+ SITE_NAME
     return <div>
-      <DocumentTitle title='统计 - 三曰' />
+      <DocumentTitle title={fullTitle} />
       <Table>
         <thead>
           <td>工单 ID</td>

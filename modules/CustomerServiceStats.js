@@ -1,3 +1,4 @@
+/*global SITE_NAME*/
 import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
@@ -204,9 +205,11 @@ export default class CustomerServiceStats extends React.Component {
   }
 
   render() {
+    var fullTitle = '统计 - '+ SITE_NAME
     return (
       <div>
-        <DocumentTitle title='统计 - 三曰' />
+        
+        <DocumentTitle title={fullTitle} />
         <StatsSummary categories={this.state.categories} />
         <StatsChart categories={this.state.categories} />
       </div>

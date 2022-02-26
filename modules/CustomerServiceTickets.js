@@ -1,3 +1,4 @@
+/*global SITE_NAME*/
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
@@ -417,10 +418,10 @@ export default class CustomerServiceTickets extends Component {
         </Pager>
       )
     }
-
+    var fullTitle = '客服工单列表 - '+ SITE_NAME
     return (
       <div>
-        <DocumentTitle title='客服工单列表 - 三曰' />
+        <DocumentTitle title={fullTitle} />
         <div className={css.row}>
           <Checkbox className={css.ticketSelectCheckbox} onClick={this.handleClickCheckAll.bind(this)} checked={this.state.isCheckedAll}></Checkbox>
           {this.state.checkedTickets.size && ticketCheckedOperations || ticketAdminFilters}
